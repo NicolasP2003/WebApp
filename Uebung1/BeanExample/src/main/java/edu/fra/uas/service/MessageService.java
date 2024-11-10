@@ -10,6 +10,7 @@ public class MessageService {
     private static final Logger log = LoggerFactory.getLogger(MessageService.class);
 
     private String message;
+    private Integer counter = 0;
 
     public String getMessage() {
         log.info("getMessage called. Returning message: {}", message);
@@ -19,6 +20,16 @@ public class MessageService {
     public void setMessage(String message) {
         log.info("setMessage called. Updating message from '{}' to '{}'", this.message, message);
         this.message = message;
+    }
+
+    public void increment() {
+        counter++;
+        log.info("increment called. Counter value is now: {}", counter);
+    }
+
+    public Integer getCounter() {
+        log.info("getCounter called. Returning counter: {}", counter);
+        return counter;
     }
 
 }

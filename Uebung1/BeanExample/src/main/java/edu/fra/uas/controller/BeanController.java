@@ -12,8 +12,16 @@ public class BeanController {
     private MessageService messageService;
 
     public String putMessage(String message) {
-        messageService.setMessage(" put messgae: " + message);
+        messageService.setMessage(" put message: " + message);
         return messageService.getMessage();
+    }
+
+    public void incrementCounter() {
+        messageService.increment();
+    }
+
+    public Integer getCounter() {
+        return messageService.getCounter();
     }
 
 }
