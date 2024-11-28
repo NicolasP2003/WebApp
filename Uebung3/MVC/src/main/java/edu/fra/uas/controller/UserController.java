@@ -46,29 +46,50 @@ public class UserController {
 
     // http://127.0.0.1/find?id=1
     @RequestMapping(value = {"/find"}, method = RequestMethod.GET)
+    // @RequestParam("id") Long userId: The value of the id parameter is mapped to the userId parameter of the find() method.
     public String find(@RequestParam("id") Long userId, Model model) {
+        // The log.debug() method is used to log a debug message.
         log.debug("find() is called");
+        // The getUserById() method is called to retrieve the user with the specified id.
         User user = userService.getUserById(userId);
+        // The user object is added to the model.
         model.addAttribute("user", user);
+        // The name of the view file is returned.
         return "find.html";
     }
 
     // http://127.0.0.1/add?firstName=Celine&lastName=Clever&email=celine.clever%40example.com&password=123456
     @RequestMapping(value = {"/add"}, method = RequestMethod.GET)
+    // The add() method is called when the /add URL is accessed using the GET method.
     public String add(@RequestParam("firstName") String firstName, 
+    // The value of the firstName parameter is mapped to the firstName parameter of the add() method.
                       @RequestParam("lastName") String lastName, 
+    // The value of the lastName parameter is mapped to the lastName parameter of the add() method.                  
                       @RequestParam("email") String email, 
+    // The value of the email parameter is mapped to the email parameter of the add() method.                  
                       @RequestParam("password") String password, 
+    // The value of the password parameter is mapped to the password parameter of the add() method.                  
                       Model model) throws MissingServletRequestParameterException {
+    // The add() method throws a MissingServletRequestParameterException if any of the required parameters are missing.
+    // The log.debug() method is used to log a debug message.
         log.debug("add() is called");
+        // A new User object is created and initialized with the values of the parameters.
         User user = new User();
+        // The role of the user is set to "USER".
         user.setRole("USER");
+        // The first name of the user is set to the value of the firstName parameter.
         user.setFirstName(firstName);
+        // The last name of the user is set to the value of the lastName parameter.
         user.setLastName(lastName);
+        // The email of the user is set to the value of the email parameter.
         user.setEmail(email);
+        // The password of the user is set to the value of the password parameter.
         user.setPassword(password);
+        // The createUser() method is called to create the user.
         userService.createUser(user);
+        // The user object is added to the model.
         model.addAttribute("user", user);
+        // The name of the view file is returned.
         return "add.html";
     }
 

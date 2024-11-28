@@ -1,22 +1,42 @@
+//Die Model-Objekte werden im Template mit Hilfe von Thymeleaf verarbeitet. Thymeleaf ist ein Template-Engine für Java-basierte Webanwendungen, die es ermöglicht, HTML-Dateien mit dynamischen Daten zu füllen.
+
+//In deinem Template add.html werden die Model-Objekte durch die Verwendung von th:text-Attributen verarbeitet. Diese Attribute binden die Werte der Model-Objekte an die entsprechenden HTML-Elemente.
+
+// This is the view for the add operation. It displays the user data that was added to the database.
 <!DOCTYPE html>
+// The thymeleaf namespace is defined.
 <html xmlns:th="http://www.thymeleaf.org">
+// The head section of the HTML document.
     <head>
+// The title of the HTML document.        
         <title>User added</title>
+// The style section of the HTML document.        
     </head>
+// The body section of the HTML document.    
     <body>
+// The heading of the HTML document.
         <h1>User added</h1>
-        <p>User ID: <b th:text="${user.id}">Id</b></p>
+// The user data is displayed in the HTML document.
+        <p>User ID: <b th:text="${user.id}">Id</b></p>            
         <p>Firstname: <b th:text="${user.firstName}">First Name</b></p>
         <p>Lastname: <b th:text="${user.lastName}">Last Name</b></p>
         <p>Email: <b th:text="${user.email}">Email</b></p>
         <br/>
+// The link to the user list is displayed in the HTML document.
         <a href="/list">Back to user list</a>
+// The footer section of the HTML document.
         <footer>
+// The current year is displayed in the HTML document.
             <small id="today"></small>
         </footer>
+// The script section of the HTML document.
         <script>
+// The current year is calculated and displayed in the HTML document.
+            // Get the current date
             var date = new Date();
+            // Get the current year
             var year = date.getFullYear();
+// The current year is displayed in the HTML document.
             document.getElementById("today").innerHTML = "&copy; FRA-UAS MVC Example, "+year;
         </script> 
     </body>

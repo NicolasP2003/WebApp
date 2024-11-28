@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Journeyman {
+public class Journeyman2 {
     @Autowired
-    @Qualifier("pleaseFlex")
+    @Qualifier("pleasePaint")
     Work work;
 
     public void performWork() {
