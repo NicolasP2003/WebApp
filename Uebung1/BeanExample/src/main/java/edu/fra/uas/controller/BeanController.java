@@ -20,8 +20,7 @@ public class BeanController {
         messageService.increment();
     }
 
-    public Integer getCounter() {
+    public int getCounter() {
         return messageService.getCounter();
     }
-
 }
